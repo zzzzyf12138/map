@@ -1,0 +1,14 @@
+<view class="container">
+  <input 
+    class="search-input" 
+    placeholder="输入地点名称" 
+    bindinput="onInput"
+  />
+  <button bindtap="onSearch">搜索</button>
+
+  <view class="search-results">
+    <block wx:for="{{results}}" wx:key="id">
+      <text>{{item.title}} - {{item.latitude}}, {{item.longitude}}</text>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,15 @@
+.container {
+  padding: 20px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+.search-results text {
+  display: block;
+  margin-top: 10px;
+}

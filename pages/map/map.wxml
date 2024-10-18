@@ -1,0 +1,22 @@
+<view class="container">
+  <!-- 地图 -->
+  <map 
+    longitude="{{longitude}}" 
+    latitude="{{latitude}}" 
+    markers="{{markers}}" 
+    bindmarkertap="onMarkerTap" 
+    style="width: 100%; height: 100%;" 
+    scale="16" 
+    show-location
+    subkey="B6LBZ-H5C6Q-ARC5A-4C3AG-PWCTZ-L4BM5"
+    layer-style="1"
+  ></map>
+
+  <!-- 悬浮的搜索按钮 -->
+  <button 
+    class="search-btn" 
+    bindtap="goToSearchPage"
+  >
+    搜索地点
+  </button>
+</view>

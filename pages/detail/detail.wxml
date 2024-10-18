@@ -1,0 +1,4 @@
+<view>
+  <text>{{marker.name}}</text>
+  <text>{{marker.description}}</text>
+</view>
