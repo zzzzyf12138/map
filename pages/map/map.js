@@ -15,22 +15,6 @@ Page({
   data: {
     longitude: 113.972976	, // 初始地图中心经度
     latitude: 22.591792, // 初始地图中心纬度
-    // markers: [{ // 示例标注 1
-    //   id: 1,
-    //   latitude: 22.536837,
-    //   longitude: 113.921736,
-    //   iconPath: '../../utils/resources/marker.png',
-    //   width: 30,
-    //   height: 30
-    // },
-    // { // 示例标注 2
-    //   id: 2,
-    //   latitude: 22.54286,
-    //   longitude: 114.059563,
-    //   iconPath: '../../utils/resources/marker.png',
-    //   width: 30,
-    //   height: 30
-    // }], // 地图上的标注
     markers: []
   },
 
@@ -105,6 +89,7 @@ Page({
       url: `/pages/detail/detail?id=${markerId}` // 跳转到详细页面，并传递ID参数
     });
   },
+
   // 搜索按钮的事件处理函数
   goToSearchPage() {
     wx.navigateTo({

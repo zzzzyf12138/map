@@ -4,6 +4,14 @@
   width: 100%;
   height: 100vh; /* 全屏显示 */
 }
+.custom-map-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* 避免图层阻挡地图的交互操作 */
+}
 
 .search-btn {
   position: absolute;

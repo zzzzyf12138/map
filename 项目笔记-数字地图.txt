@@ -18,7 +18,10 @@ map页面
 3.获取位置坐标：调用wx.getLocation获取当前用户地理位置，首先将当前页面实例绑定到that，调用wx.getLocation()获取地理位置信息，返回res对象（包含经纬度）并存储，并使用console.log打印出来。新建一个userMarker（和之前的markers的数据结构相同）。之后对that进行数据填写（经纬度，markers将usermaker合并）
 
 detail页面
-逻辑：根据 URL 中的 id 参数（通过options传过来了），从标注数据中找到对应地点（在makers数组中，遍历寻找与刚刚传过来id的相同的），并显示详细信息。
+逻辑：
+1.根据 URL 中的 id 参数（通过options传过来了），从标注数据中找到对应地点（在makers数组中，遍历寻找与刚刚传过来id的相同的），并显示详细信息。
+2.初始化数据库并读取相应的坐标点信息，Onload时读取id，通过getMarkerDetails从读取的数据中，筛选id相同的标记点的信息
+3.导航：根据this的数据，获取经纬度、name，并通过 wx.openLocation调用导航功能
 
 
 search页面

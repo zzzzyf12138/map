@@ -1,4 +1,15 @@
-<view>
-  <text>{{marker.name}}</text>
-  <text>{{marker.description}}</text>
+<view class="container">
+  <text class="title">{{marker.id}}</text>
+  
+  <view class="content">
+    <text>纬度{{marker.latitude}}</text>
+    <text>经度{{marker.longitude}}</text>
+  </view>
+
+  <button 
+    class="navigate-btn" 
+    bindtap="startNavigation"
+  >
+    到这里去
+  </button>
 </view>
