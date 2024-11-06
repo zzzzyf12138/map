@@ -25,7 +25,16 @@ Page({
     mapLayerId: '671791c94409', // 自定义图层 ID
     longitude: 113.972976	, // 初始地图中心经度
     latitude: 22.591792, // 初始地图中心纬度
-    markers: []
+    // 存储坐标点
+    markers: [],
+    // 控制移动范围
+    boundary: {
+      southwest: { latitude: 22.5887, longitude: 113.9652 },
+      northeast: { latitude: 22.5945, longitude: 113.9745 }
+    },
+    scale: 17,
+    minScale: 17,  // 设定最小缩放等级
+    maxScale: 19   // 设定最大缩放等级
   },
 
   onLoad() {
@@ -37,6 +46,37 @@ Page({
     // 页面加载时调用加载标记点的方法
     this.loadMarkers(); 
   },
+  // 监控地图区域变化
+  onRegionChange(e) {
+    if (e.type === 'end') {  // 等到用户停止移动后再处理
+      this.checkBoundary();
+    }
+  },
+ // 检查并限制移动范围
+ checkBoundary() {
+  this.mapCtx.getCenterLocation({
+    success: (res) => {
+      const { latitude, longitude } = res;
+      const { southwest, northeast } = this.data.boundary;
+      
+      let newLat = latitude;
+      let newLng = longitude;
+      // 比较当前中心坐标与约束坐标的大小，超出范围则更新新坐标参数
+      if (latitude < southwest.latitude) newLat = southwest.latitude;
+      if (latitude > northeast.latitude) newLat = northeast.latitude;
+      if (longitude < southwest.longitude) newLng = southwest.longitude;
+      if (longitude > northeast.longitude) newLng = northeast.longitude;
+
+      // 若地图中心点超出边界，重新移动到边界内
+      if (newLat !== latitude || newLng !== longitude) {
+        this.mapCtx.moveToLocation({
+          latitude: newLat,
+          longitude: newLng
+        });
+      }
+    }
+  });
+},
   // 添加图片覆盖层
   addImageOverlay() {
     this.mapCtx.addGroundOverlay({

@@ -5,13 +5,14 @@
     longitude="{{longitude}}" 
     latitude="{{latitude}}" 
     markers="{{markers}}" 
-    bindmarkertap="onMarkerTap" 
     style="width: 100%; height: 100%;" 
-    scale="18" 
+    scale="{{scale}}" 
+    min-scale="{{minScale}}"
+    max-scale="{{maxScale}}"
     show-location
-    layer-style="1"
+    bindmarkertap="onMarkerTap" 
+    bindregionchange="onRegionChange"
   ></map>
-  <!-- subkey="B6LBZ-H5C6Q-ARC5A-4C3AG-PWCTZ-L4BM5" -->
   <!-- 悬浮的搜索按钮 -->
   <button 
     class="search-btn" 
